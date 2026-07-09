@@ -1,0 +1,48 @@
+---
+import { PHONE, PHONE_LINK, ADDRESS } from '../constants';
+---
+
+<section id="contact" class="py-16 px-6 relative bg-ink text-paper">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="tag mb-4 bg-orange inline-block">ΕΠΙΚΟΙΝΩΝΙΑ</div>
+      <h2 class="section-title mb-3">
+        <span class="text-orange-bright">ΠΑΜΕ</span> ΓΙΑ
+        <span class="font-hand text-3xl md:text-5xl text-cream block md:inline">ΚΡΑΤΗΣΗ</span>
+      </h2>
+      <p class="text-lg opacity-80">Μην ντρέπεσαι — ο κόσμος ζητάει τραπέζι, εσύ γιατί όχι;</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4">
+      <a href={`tel:${PHONE_LINK}`} class="block p-6 border-4 border-orange shadow-block-orange text-center group bg-paper/5 no-underline text-paper hover:-translate-y-0.5 transition-transform">
+        <div class="w-10 h-10 mx-auto mb-2 group-hover:rotate-12 transition-transform"><img src="/icons/phone.svg" alt="" class="w-full h-full icon-cream" /></div>
+        <div class="tag mb-2 bg-orange text-[10px]">ΤΗΛΕΦΩΝΟ</div>
+        <div class="font-display text-lg text-orange-bright">{PHONE}</div>
+      </a>
+
+      <a href="#location" class="block p-6 border-4 border-orange shadow-block-orange text-center group bg-paper/5 no-underline text-paper hover:-translate-y-0.5 transition-transform">
+        <div class="w-10 h-10 mx-auto mb-2 group-hover:-rotate-12 transition-transform"><img src="/icons/location.svg" alt="" class="w-full h-full icon-cream" /></div>
+        <div class="tag mb-2 bg-orange text-[10px]">ΔΙΕΥΘΥΝΣΗ</div>
+        <div class="font-display text-base">Λέμαν 12, Παραλία Αλυκών</div>
+      </a>
+
+      <div class="p-6 border-4 border-orange shadow-block-orange text-center group bg-paper/5 hover:-translate-y-0.5 transition-transform">
+        <div class="w-10 h-10 mx-auto mb-2 group-hover:rotate-12 transition-transform"><img src="/icons/social.svg" alt="" class="w-full h-full icon-cream" /></div>
+        <div class="tag mb-2 bg-orange text-[10px]">SOCIAL</div>
+        <div class="font-display text-base">@kymastoxyma</div>
+      </div>
+    </div>
+
+    <div class="mt-8 p-6 border-4 border-ink shadow-block-lg text-center bg-cream text-ink max-w-lg mx-auto">
+      <div class="tag mb-2 -rotate-1 inline-block">ΕΠΙΧΕΙΡΗΣΗ</div>
+      <h3 class="text-2xl font-display mb-1">"Κύμα στο Χύμα"</h3>
+      <p class="font-display text-sm uppercase tracking-widest text-red mb-3">Ψητομεζεδοπωλείο</p>
+      <div class="meander-bar mb-4"></div>
+      <p class="text-sm font-semibold"><img src="/icons/location.svg" alt="" class="w-4 h-4 inline-block align-middle mr-1 icon-ink" /> {ADDRESS}</p>
+      <p class="text-sm font-semibold"><img src="/icons/phone.svg" alt="" class="w-4 h-4 inline-block align-middle mr-1 icon-ink" /> {PHONE}</p>
+      <div class="mt-4">
+        <a href={`tel:${PHONE_LINK}`} class="btn-retro">ΚΑΝΕ ΚΡΑΤΗΣΗ ΤΩΡΑ</a>
+      </div>
+    </div>
+  </div>
+</section>

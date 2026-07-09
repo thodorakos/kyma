@@ -1,0 +1,27 @@
+---
+import MenuApp from './MenuApp.tsx';
+---
+
+<section id="menu" class="py-16 px-6 relative">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="tag mb-4 -rotate-1 inline-block">ΚΑΤΑΛΟΓΟΣ • ΜΕΝΟΥ</div>
+      <h2 class="section-title mb-3">
+        <span class="underline-paint">ΤΟ ΜΕΝΟΥ</span>
+      </h2>
+      <p class="text-lg max-w-xl mx-auto font-medium">
+        Δεν είναι απλά κατάλογος — είναι <strong class="text-orange">έμπνευση</strong>. Μεζέδες που λένε ιστορίες και σπεσιαλιτέ που θα θες να ξαναδοκιμάσεις.
+      </p>
+    </div>
+
+    <MenuApp client:load />
+
+    <div class="mt-10 text-center">
+      <div class="inline-block p-4 border-4 border-ink shadow-block bg-orange text-cream">
+        <p class="font-display text-sm uppercase tracking-wider">
+          <img src="/icons/warning.svg" alt="" class="w-5 h-5 inline-block align-middle mr-1 icon-cream" /> Η ανάγνωση του μενού προκαλεί έντονη πείνα
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

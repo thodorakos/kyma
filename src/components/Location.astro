@@ -1,0 +1,56 @@
+---
+import { PHONE } from '../constants';
+---
+
+<section id="location" class="py-16 px-6 relative">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="tag mb-4 rotate-1 inline-block">ΒΡΕΣ ΜΑΣ</div>
+      <h2 class="section-title mb-3">
+        <span class="underline-paint">ΠΟΥ</span><br class="md:hidden">
+        <span class="text-orange">ΒΡΙΣΚΟΜΑΣΤΕ</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-paper-dark border-4 border-ink shadow-block p-6">
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 shrink-0"><img src="/icons/location.svg" alt="" class="w-full h-full icon-ink" /></div>
+          <div>
+            <div class="tag mb-2 text-[10px]">ΔΙΕΥΘΥΝΣΗ</div>
+            <h3 class="text-xl font-display mb-1">Λέμαν 12 με Ζήτη</h3>
+            <p class="font-semibold">Πεζόδρομος Παραλίας Αλυκών</p>
+            <p class="text-sm opacity-70 mt-2">Θα μας ακούσεις πριν μας δεις — από τη μυρωδιά!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-orange text-cream border-4 border-ink shadow-block p-6">
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 shrink-0"><img src="/icons/phone.svg" alt="" class="w-full h-full icon-cream" /></div>
+          <div>
+            <div class="tag mb-2 bg-ink text-[10px]">ΚΡΑΤΗΣΕΙΣ</div>
+            <h3 class="text-2xl font-display">{PHONE}</h3>
+            <p class="text-sm mt-1 opacity-85">Κάλεσε τώρα — μη σε προλάβουν!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 bg-cream border-4 border-ink shadow-block p-6">
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 shrink-0"><img src="/icons/clock.svg" alt="" class="w-full h-full icon-ink" /></div>
+          <div class="flex-1">
+            <div class="tag mb-2 text-[10px]">ΩΡΕΣ ΛΕΙΤΟΥΡΓΙΑΣ</div>
+            <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-sm font-semibold max-w-sm">
+              <div>Δευτέρα</div><div class="text-right opacity-60">Κλειστά</div>
+              <div>Τρίτη - Πέμπτη</div><div class="text-right">12:00 - 24:00</div>
+              <div>Παρασκευή</div><div class="text-right">12:00 - 02:00</div>
+              <div>Σάββατο</div><div class="text-right">13:00 - 02:00</div>
+              <div>Κυριακή</div><div class="text-right">13:00 - 24:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+@import "@fontsource/archivo-black" layer(fonts);
+@import "@fontsource/oswald/400.css" layer(fonts);
+@import "@fontsource/oswald/500.css" layer(fonts);
+@import "@fontsource/oswald/600.css" layer(fonts);
+@import "@fontsource/oswald/700.css" layer(fonts);
+@import "@fontsource/caveat/600.css" layer(fonts);
+@import "@fontsource/caveat/700.css" layer(fonts);
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --color-ink: #14110a;
+  --color-paper: #f0e2c0;
+  --color-paper-dark: #e2d09e;
+  --color-orange: #de4e15;
+  --color-orange-bright: #f26421;
+  --color-red: #a8201a;
+  --color-teal: #1c6b62;
+  --color-gold: #b8861f;
+  --color-cream: #f9efd2;
+  --font-display: "Archivo Black", Impact, sans-serif;
+  --font-body: "Oswald", system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+  --shadow-block: 8px 8px 0px #14110a;
+  --shadow-block-lg: 12px 12px 0px #14110a;
+  --shadow-block-sm: 4px 4px 0px #14110a;
+  --shadow-block-orange: 8px 8px 0px #de4e15;
+  --border-width-3: 3px;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-body overflow-x-hidden;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(222, 78, 21, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(168, 32, 26, 0.04) 0%, transparent 40%);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight leading-[0.92];
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 999;
+    opacity: 0.3; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0 0.04 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    @apply bg-ink text-paper;
+  }
+}
+
+@layer components {
+  .meander-bar {
+    background-image: url("data:image/svg+xml,%3Csvg width='48' height='14' viewBox='0 0 48 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 7 L6 7 L6 2 L12 2 L12 12 L18 12 L18 7 L24 7 L24 2 L30 2 L30 12 L36 12 L36 7 L42 7 L42 2 L48 2' stroke='%2314110a' stroke-width='2' fill='none' stroke-linejoin='miter'/%3E%3C/svg%3E");
+    @apply bg-repeat-x h-[14px];
+  }
+
+  .btn-retro {
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 font-display text-sm uppercase tracking-widest bg-orange text-cream border-4 border-ink shadow-block transition-all duration-100 cursor-pointer no-underline;
+  }
+  .btn-retro:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0px #14110a; }
+  .btn-retro:active { transform: translate(8px, 8px); box-shadow: 0 0 0 #14110a; }
+
+  .btn-retro-dark {
+    @apply bg-ink text-cream shadow-block-orange;
+  }
+  .btn-retro-dark:hover { box-shadow: 4px 4px 0px #de4e15; }
+
+  .tag {
+    @apply inline-block px-3 py-1 bg-ink text-paper font-display text-xs uppercase tracking-widest;
+  }
+
+  .sepia-img {
+    filter: sepia(0.4) contrast(1.1) saturate(0.8) brightness(0.95);
+  }
+
+  .underline-paint {
+    @apply relative inline-block z-10;
+  }
+  .underline-paint::after {
+    content: '';
+    @apply absolute bottom-1 -left-1 -right-1 h-3 bg-orange -z-10;
+    transform: skew(-4deg) rotate(-1deg);
+  }
+
+  .section-title {
+    @apply font-display text-5xl md:text-7xl leading-[0.92] mb-2;
+  }
+}
+
+.icon-ink { filter: brightness(0) saturate(100%) invert(6%) sepia(19%) saturate(926%) hue-rotate(353deg) brightness(93%) contrast(93%); }
+.icon-cream { filter: brightness(0) saturate(100%) invert(92%) sepia(12%) saturate(661%) hue-rotate(331deg) brightness(101%) contrast(92%); }
+.icon-orange { filter: brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(1872%) hue-rotate(356deg) brightness(97%) contrast(93%); }
+
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-track { @apply flex w-max; animation: marquee 30s linear infinite; }
+
+@keyframes float-subtle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.float-subtle { animation: float-subtle 3s ease-in-out infinite; }
+
+@keyframes fade-in { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
+.fade-in-delayed { animation: fade-in 0.6s ease-out both; }
