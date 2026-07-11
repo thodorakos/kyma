@@ -1,8 +1,7 @@
 ---
-import { PHONE, PHONE_LINK } from '../constants';
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-ink/95 text-paper border-b-4 border-orange">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-ink/90 md:bg-ink/95 text-paper border-b-4 border-orange">
   <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
     <a href="#home" class="flex items-center gap-3 group no-underline text-paper">
       <img src="/kymastoxyma_logo.jpg" alt="Κύμα στο Χύμα λογότυπο" class="w-10 h-10 object-cover border-2 border-paper shadow-[3px_3px_0px_rgba(249,239,210,0.3)] transition-transform group-hover:-translate-y-0.5" />
@@ -18,9 +17,22 @@ import { PHONE, PHONE_LINK } from '../constants';
       <a href="#location" class="text-sm font-bold uppercase tracking-widest text-paper hover:text-orange-bright transition-colors">Τοποθεσία</a>
       <a href="#contact" class="text-sm font-bold uppercase tracking-widest text-paper hover:text-orange-bright transition-colors">Επικοινωνία</a>
     </div>
-
-    <a href={`tel:${PHONE_LINK}`} class="inline-flex items-center gap-2 px-4 py-2 bg-orange text-cream border-2 border-paper font-display text-xs uppercase tracking-widest shadow-[3px_3px_0px_rgba(249,239,210,0.3)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_rgba(249,239,210,0.3)] transition-all">
-      <img src="/icons/phone.svg" alt="" class="w-4 h-4 icon-cream" /> {PHONE}
-    </a>
   </div>
 </nav>
+
+<script>
+  const nav = document.querySelector('nav');
+  let ticking = false;
+  document.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const isMobile = window.innerWidth < 768;
+        nav.style.opacity = isMobile ? Math.max(0, 1 - scrollY / 250) : '1';
+        nav.style.pointerEvents = isMobile && scrollY > 250 ? 'none' : '';
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+</script>
